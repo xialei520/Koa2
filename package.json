@@ -11,5 +11,9 @@
   "license": "ISC",
   "devDependencies": {
     "koa": "^2.0.1"
+  },
+  "dependencies": {
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.0.1"
   }
 }
