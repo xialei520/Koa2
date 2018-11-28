@@ -1,4 +1,3 @@
-<<<<<<< HEAD
  
 const fs = require('fs');
 
@@ -37,44 +36,4 @@ module.exports = (dir) => {
     router = require('koa-router')();
     addControllers(router, controllers_dir);
     return router.routes();
-=======
-const fs = require('fs');
-
-function addMapping(router, mapping){
-    for(var url in mapping){
-        if(url.startsWith('GET')){
-            var path = url.substring(3);
-            console.log(path)
-            router.get(path, mapping[url]);
-            console.log(`register URL mapping: GET ${path}`);
-        }else if(url.startsWith('POST')){
-            var path = url.substring(4);
-            router.post(path, mapping[url]);
-            console.log(`register URL mapping: GET ${path}`);
-
-        }else{
-            console.log(`invalid URL: ${url}`);
-        }
-    }
-}
-
-function addControllers(router){
-    var files = fs.readdirSync(__dirname + '/controllers');
-    var js_files = files.filter((f) => {
-        return f.endsWith('.js');
-    })
-
-    for(var f of js_files){
-        console.log(`process controller: ${f}...`);
-        let mapping = require(__dirname + '/controllers/' + f);
-        addMapping(router, mapping);
-    }
-}
-
-module.exports = (dir) => {
-    let controllers_dir = dir || 'controllers',
-    router = require('koa-router')();
-    addControllers(router, controllers_dir);
-    return router.routes(); 
->>>>>>> 4bf5aed094c1afcc1489c9ff27891f56742d5d96
 }
