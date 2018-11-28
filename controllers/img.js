@@ -41,7 +41,8 @@ var js_img = async (ctx, next) => {
     
         
         // console.log(ctx)
-        ctx.response.body = r
+        ctx.response.body = r;
+        
       })
     
     // ctx.response.body = {name:'xialei'}

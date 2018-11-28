@@ -4,7 +4,6 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    
     "start": "node app.js"
   },
   "author": "Xia Lei",
@@ -13,5 +12,9 @@
     "koa": "^2.0.1",
     "koa-router": "^7.4.0",
     "mysql": "^2.16.0"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "vue": "^2.5.17"
   }
 }
