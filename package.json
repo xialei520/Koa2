@@ -1,20 +1,23 @@
 {
-  "name": "koa2",
+  "name": "koa2-learning",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Xia Lei",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xialei520/Koa2.git"
+  },
+  "author": "xia lei",
   "license": "ISC",
-  "devDependencies": {
-    "koa": "^2.0.1",
-    "koa-router": "^7.4.0",
-    "mysql": "^2.16.0"
+  "bugs": {
+    "url": "https://github.com/xialei520/Koa2/issues"
   },
+  "homepage": "https://github.com/xialei520/Koa2#readme",
   "dependencies": {
-    "jquery": "^3.3.1",
-    "vue": "^2.5.17"
+    "express": "^4.16.4",
+    "koa": "^2.7.0"
   }
 }
