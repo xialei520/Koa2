@@ -1,0 +1,18 @@
+{
+  "name": "2.router",
+  "version": "1.0.0",
+  "description": "",
+  "main": "404.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "\\"
+  ],
+  "author": "xialei",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-router": "^7.4.0"
+  }
+}

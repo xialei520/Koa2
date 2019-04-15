@@ -7,9 +7,9 @@ const static = require('koa-static');  //用于加载静态资源的中间件
 const views = require('koa-views');    //用于加载html模板文件
 const path = require('path');
 
-// app.use(views(__dirname + '/views', {  //加载模板引擎
-// 	map: {html: 'ejs'}
-// }))
+app.use(views(__dirname + '/views', {  //加载模板引擎
+	map: {html: 'ejs'}
+}))
 
 app.use(static(                        //加载静态资源
 	path.join(__dirname, '/static')
