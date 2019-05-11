@@ -7,7 +7,7 @@ module.exports = (app) => {
 	router.get('/home', HomeController.home)
 	router.get('/user', HomeController.user)
 	router.post('/user/login', HomeController.login)
-
+	router.get('/song', HomeController.list)
 	// router.get('/user', ctx => {
 	// 	ctx.response.body = `
 	// 		<form action='/user/login' method='post'>

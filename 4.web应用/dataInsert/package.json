@@ -1,0 +1,16 @@
+{
+  "name": "datainsert",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "xialei",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.17.1",
+    "rimraf": "^2.6.3"
+  }
+}

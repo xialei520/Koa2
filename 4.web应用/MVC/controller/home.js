@@ -1,4 +1,5 @@
-const HomeService = require('../service/home')
+const HomeService = require('../service/home');
+const findMusic = require('../service/database')
 module.exports = {
 	index: async (ctx, next) => {
 		ctx.body = '<h1>index page</h1>';
@@ -26,5 +27,27 @@ module.exports = {
 		// }else{
 		// 	ctx.body = '账号登陆失败!'
 		// }
+	},
+	list: async (ctx, next) => {
+		const sql = `SELECT * FROM music`;
+		var result = await findMusic.findMusic() 
+		
+		var arr = []
+		result.forEach(item => {
+			arr.push({
+				ID: item.ID,
+				title: item.title,
+				url: item.url
+			})
+		})
+		var data = {
+			errorCode: '0',
+			errorMsg: 'success',
+			data: arr 
+		}
+		console.log(data)
+		ctx.set('Content-Type', 'text/html')
+		ctx.set('Access-Control-Allow-Origin','*');
+		ctx.body = JSON.stringify(data);
 	}
 }
