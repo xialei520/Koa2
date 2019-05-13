@@ -9,7 +9,7 @@ const db = mysql.createPool({
 module.exports = {
 	findMusic : async(result) => {
 		 return new Promise((resolve, reject) => {
-		 	db.query(`SELECT * FROM music`, function (err, data) {
+		 	db.query(`SELECT * FROM music ORDER BY ctime ASC`, function (err, data) {
 		        if (err) {
 		            reject(err)
 		        } else {

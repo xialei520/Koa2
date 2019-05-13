@@ -10,27 +10,34 @@ const db = mysql.createPool({
 	port: 10028
 })
 
-// const path = require('path');
-// var readDir = fs.readdirSync("./song"); //读取目录下的所有文件夹及文件
-// console.log(readDir.length)
-// readDir.forEach(async (item, index, arr) => {
-// 	// console.log(path.resolve(__dirname, item))
-// 	var url = await `http://www.loveinmymind.xyz/dataInsert/song/${item}` 
-// 	var title = await item.split('.')[0]
-// 	// rm(addr, function(err) { //循环删除文件夹及文件
-// 	// 		console.log(err);
+const path = require('path');
+var readDir = fs.readdirSync("./song"); //读取目录下的所有文件夹及文件
+console.log(readDir.length)
+
+
+readDir.forEach(async (item, index, arr) => {
+	console.log(path.resolve(__dirname, item))
+
+    //获取文件信息 ctime文件创建时间
+    var stat = await fs.statSync(`./song/${item}`);
+    var ctime = await stat.ctime.getTime();
+    
+    var url = await `http://www.loveinmymind.xyz/dataInsert/song/${item}` 
+	var title = await item.split('.')[0]
+	// rm(addr, function(err) { //循环删除文件夹及文件
+	// 		console.log(err);
 			 
-// 	// })
-// 	console.log(title, url)
-// 	// await insertDatabase(index, title, url)
+	// })
+	// console.log(title, url)
+	await insertDatabase(index, title, url, ctime)
 	 
 	
-// })
+})
 
 //插入数据库
-async function insertDatabase(index, title, url){
+async function insertDatabase(index, title, url, ctime){
     
-    await db.query(`INSERT INTO music (ID, title, url) VALUES ('${index}', '${title}', '${url}')`, function (err, data) {
+    await db.query(`INSERT INTO music (ID, title, url, ctime) VALUES ('${index}', '${title}', '${url}', '${ctime}')`, function (err, data) {
         if (err) {
             console.error(err);
         } else {
@@ -38,6 +45,9 @@ async function insertDatabase(index, title, url){
         }
     })
 }
+
+
+
  
 // let fs =  require ('fs');
 // let stdin = process.stdin,
