@@ -5,17 +5,16 @@ const multer = require('koa-multer');
 
 const controller = require('./controller/index')
 module.exports = (app) => {
-	// const upload = multer({
-	// 	dest: 'uploads/'
-	// })
+	const upload = multer({
+		dest: './uploads/'
+	})
 
-	// const types = upload.single('avatar')
-	
+	const types = upload.any()
 
 	router.get('/', controller.index);
-	router.post('/upload', controller.file)
-	// app.use(upload)
-	app.use(router.routes())
+	router.post('/upload', types, controller.file)
+	app.use(router.routes());
+
 }
 	
 
